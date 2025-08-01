@@ -10,7 +10,6 @@ The Gournal is The Capstone project For ALX FE Program its a Daily News Reader A
 - User-friendly interface
 - Filter articles by category
 
-
 ## Technologies Used
 
 - React.js
