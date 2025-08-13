@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Calibri', 'Georgia', 'Times New Roman'],
+        sans: ['Times New Roman'],
       },
     },
   },
