@@ -6,9 +6,8 @@ The Gournal is The Capstone project For ALX FE Program its a Daily News Reader A
 
 - Read news articles from various sources
 - Responsive design for mobile and desktop
-- Dark mode support
 - User-friendly interface
-- Filter articles by category
+- Search Bar
 
 ## Technologies Used
 
