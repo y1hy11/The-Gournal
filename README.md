@@ -6,7 +6,7 @@
 
 **The Gournal** is a newspaper-style web application that brings the classic 1980s newspaper reading experience to the digital age. Built as the capstone project for the ALX Frontend Engineering Program, it combines authentic newspaper design with modern web technologies to deliver real-time news from premium sources worldwide.
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live-8B4513?style=for-the-badge)](https://the-gournal.vercel.app/)
+[![THE GOURNAL](https://img.shields.io/badge/THE-GOURNAL-8B4513?style=for-the-badge)](https://the-gournal.vercel.app/)
 [![ALX](https://img.shields.io/badge/ALX-Program-DC143C?style=for-the-badge)](https://www.alxafrica.com/)
 
 ## ✨ Features
