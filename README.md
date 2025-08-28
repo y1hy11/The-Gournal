@@ -133,7 +133,6 @@ The Gournal/
 │   │   └── NotFound.jsx        # 404 page
 │   ├── App.jsx                 # Main app component
 │   ├── main.jsx               # React entry point
-│   ├── App.css                # Main app styles
 │   └── index.css              # Global styles & responsive design
 ├── .env                       # Environment template
 ├── tailwind.config.js         # Tailwind configuration

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useNewsStore from '@context/UserContext';
+import useNewsStore from '../context/UserContext';
 
 const SearchBar = () => {
   const { 
