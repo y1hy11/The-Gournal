@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Article from "@components/Article";
-import useNewsStore from "@context/UserContext";
+import Article from "@components/Article.jsx";
+import useNewsStore from "@context/UserContext.jsx";
 
 const Journal = () => {
   const { articles, loading, error, fetchArticles } = useNewsStore();

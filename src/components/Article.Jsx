@@ -1,4 +1,4 @@
-import { getArticleStyles } from "./ArticleStyles";
+import { getArticleStyles } from "./ArticleStyles.jsx";
 
 const Article = ({ article, size = "medium" }) => {
   if (!article) return null;
