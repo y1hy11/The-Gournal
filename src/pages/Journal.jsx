@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Article from "@components/Article.jsx";
 import useNewsStore from "@context/UserContext.jsx";
+import SearchBar from "../components/SearchBar";
 
 const Journal = () => {
   const { articles, loading, error, fetchArticles } = useNewsStore();
@@ -39,6 +40,7 @@ const Journal = () => {
 
   return (
     <main>
+      <SearchBar />
       <div className="container mx-auto px-4 py-6">
         {articles.length === 0 ? (
           <div className="text-center py-[64px]">
