@@ -9,3 +9,262 @@
   background-color: #E2D4BC;
   color: #302B1F;
 }
+
+@media (max-width: 800px) {
+  img {
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .h-80 img,
+  .h-\[400px\] img {
+    width: 100%;
+    height: 320px;
+  }
+
+  .h-\[250px\] img,
+  .h-48 img {
+    width: 100%;
+    height: 192px;
+  }
+
+  .h-40 img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .h-24 img,
+  .h-20 img {
+    width: 100%;
+    height: 96px;
+  }
+
+  header .container {
+    padding: 0 1rem;
+  }
+
+  header .flex.justify-between {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  header .flex.justify-between > div:first-child {
+    display: block;
+    font-size: 0.8rem !important;
+  }
+
+  header .text-center h1 {
+    font-size: 2rem !important;
+    margin-bottom: 1rem;
+  }
+
+  header .text-center p {
+    font-size: 0.9rem !important;
+  }
+
+  .grid.grid-cols-12 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .col-span-8,
+  .col-span-4,
+  .col-span-6,
+  .col-span-3,
+  .col-span-12 {
+    width: 100% !important;
+    grid-column: unset !important;
+  }
+
+  .border-l-2,
+  .border-r,
+  .border-l {
+    border-left: none !important;
+    border-right: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  article.mb-6.p-\[16px\].rounded-\[5px\].flex {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  article img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+  }
+
+  .flex.gap-6,
+  .flex.flex-row-reverse.gap-6 {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .text-\[1\.9rem\] {
+    font-size: 1.2rem !important;
+  }
+
+  .text-\[3\.5rem\] {
+    font-size: 2rem !important;
+  }
+
+  .text-\[2\.5rem\] {
+    font-size: 1.8rem !important;
+  }
+
+  .text-\[2\.2rem\] {
+    font-size: 1.6rem !important;
+  }
+
+  .text-\[1\.2rem\] {
+    font-size: 1rem !important;
+  }
+
+  .text-\[8rem\] {
+    font-size: 4rem !important;
+  }
+
+  .p-\[16px\] {
+    padding: 12px !important;
+  }
+
+  .p-\[12px\] {
+    padding: 8px !important;
+  }
+
+  .m-\[1rem\] {
+    margin: 0.5rem !important;
+  }
+
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-16 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .mb-8 {
+    margin-bottom: 1rem !important;
+  }
+
+  .gap-6 {
+    gap: 1rem !important;
+  }
+
+  footer .text-center {
+    padding: 0 1rem;
+  }
+
+  footer .text-\[2\.2rem\] {
+    font-size: 1.6rem !important;
+  }
+
+  footer .text-\[0\.9rem\] {
+    font-size: 0.8rem !important;
+  }
+
+  footer p:last-child {
+    line-height: 1.4 !important;
+  }
+
+  .flex.flex-col.justify-center.items-center {
+    width: 100%;
+    gap: 0.75rem !important;
+  }
+
+  .flex.flex-col.justify-center.items-center a,
+  .flex.flex-col.justify-center.items-center button {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0.75rem 1.5rem !important;
+  }
+
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .max-w-2xl {
+    max-width: 100% !important;
+  }
+
+  .columns-2 {
+    columns: 1 !important;
+  }
+
+  .min-h-\[600px\] {
+    min-height: 400px !important;
+  }
+
+  .h-80 img {
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  .h-\[250px\] img {
+    width: 100% !important;
+    height: 150px !important;
+  }
+
+  .h-\[400px\] img {
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  .h-48 img {
+    width: 100% !important;
+    height: 120px !important;
+  }
+
+  .h-40 img {
+    width: 100% !important;
+    height: 100px !important;
+  }
+
+  .h-24 img {
+    width: 100% !important;
+    height: 60px !important;
+  }
+
+  .h-20 img {
+    width: 100% !important;
+    height: 50px !important;
+  }
+
+  .w-\[500px\] {
+    width: 100% !important;
+  }
+
+  .m-\[5rem_0_5rem_0\] {
+    margin: 2rem 0 !important;
+  }
+
+  .mb-12 {
+    margin-bottom: 2rem !important;
+  }
+
+  .space-y-6 > * + * {
+    margin-top: 1rem !important;
+  }
+
+  .flex.gap-4.items-center {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: stretch !important;
+  }
+
+  .flex-1 {
+    width: 100% !important;
+  }
+
+  .flex.gap-4.items-center > button {
+    width: 100% !important;
+  }
+}
