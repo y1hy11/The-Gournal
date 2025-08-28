@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Article from "@components/Article.jsx";
 import useNewsStore from "@context/UserContext.jsx";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "@components/SearchBar";
 
 const Journal = () => {
   const { articles, loading, error, fetchArticles } = useNewsStore();
