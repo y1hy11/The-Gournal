@@ -35,7 +35,7 @@
 ### 🌐 **Premium News Integration**
 
 - **Multiple Sources**: BBC, Reuters, Bloomberg, CNN, The Verge, Wired, and more
-- **Rate Limiting**: Respectful API usage with 2-second delays
+- **Rate Limiting**: Respectful API usage with 1-second delays
 - **Content Enhancement**: Clean, readable text with source attribution
 
 ### ⚡ **Performance & UX**
