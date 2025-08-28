@@ -35,7 +35,7 @@
 ### 🌐 **Premium News Integration**
 
 - **Multiple Sources**: BBC, Reuters, Bloomberg, CNN, The Verge, Wired, and more
-- **Rate Limiting**: Respectful API usage with 1-second delays
+- **Rate Limiting**: Respectful API usage with 2-second delays
 - **Content Enhancement**: Clean, readable text with source attribution
 
 ### ⚡ **Performance & UX**
@@ -46,7 +46,7 @@
 
 ## 🚀 Live Demo
 
-Experience The Gournal: [**View Live Demo**](https://the-gournal.vercel.app/)
+Experience The Gournal: [**THE GOURNAL**](https://the-gournal.vercel.app/)
 
 ## 🛠️ Technology Stack
 

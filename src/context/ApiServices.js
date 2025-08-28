@@ -4,8 +4,12 @@ import axios from "axios";
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 const BASE_URL = "https://newsapi.org/v2";
 
+if (!API_KEY) {
+  alert.error('News API key is missing. Please check your .env file.');
+}
+
 // Rate limiting configuration
-const RATE_LIMIT_DELAY = 1000; // 1 second delay between API calls
+const RATE_LIMIT_DELAY = 2000; // 2 second delay between API calls
 let lastApiCall = 0;
 
 const apiClient = axios.create({
