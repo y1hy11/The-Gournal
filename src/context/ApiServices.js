@@ -1,4 +1,5 @@
 import axios from "axios";
+import imgG  from "/public/THE-GOURNAL-Logo.svg";
 
 // News API configuration
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
@@ -46,7 +47,7 @@ const fallbackArticles = [
     title: "News Service Unavailable",
     description: "Unable to load news at this time. Please try again later.",
     content: "Our news service is temporarily unavailable. This could be due to network issues, API limits, or server maintenance. Please refresh the page or try again in a few minutes.",
-    urlToImage: "../public/THE-GOURNAL-Logo.svg",
+    urlToImage: imgG,
     url: "#",
     source: { name: "The Gournal" },
     publishedAt: new Date().toISOString()
@@ -55,7 +56,7 @@ const fallbackArticles = [
     title: "Stay Connected",
     description: "We're working to restore normal service as quickly as possible.",
     content: "The Gournal provides daily news from trusted sources worldwide. We apologize for any inconvenience and appreciate your patience as we work to resolve this issue.",
-    urlToImage: "../public/THE-GOURNAL-Logo.svg",
+    urlToImage: imgG,
     url: "#",
     source: { name: "The Gournal" },
     publishedAt: new Date().toISOString()
