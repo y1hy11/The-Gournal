@@ -4,12 +4,19 @@ import axios from "axios";
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 const BASE_URL = "https://newsapi.org/v2";
 
+const isProduction = import.meta.env.PROD;
+
 if (!API_KEY) {
-  console.error('News API key is missing. Please check your .env file.');
+  console.error('News API key is missing.');
+  if (isProduction) {
+    console.error('Add VITE_NEWS_API_KEY to Vercel environment variables');
+  } else {
+    console.error('Add VITE_NEWS_API_KEY to your .env file');
+  }
 }
 
 // Rate limiting configuration
-const RATE_LIMIT_DELAY = 1000; // 1 second delay between API calls
+const RATE_LIMIT_DELAY = isProduction ? 2000 : 1000;
 let lastApiCall = 0;
 
 const apiClient = axios.create({
@@ -17,7 +24,7 @@ const apiClient = axios.create({
   params: {
     apiKey: API_KEY,
   },
-  timeout: 10000, // 10 second timeout
+  timeout: 10000,
 });
 
 // Rate limiting function
@@ -32,6 +39,28 @@ const rateLimit = async () => {
 
   lastApiCall = Date.now();
 };
+
+// Simple fallback articles
+const fallbackArticles = [
+  {
+    title: "News Service Unavailable",
+    description: "Unable to load news at this time. Please try again later.",
+    content: "Our news service is temporarily unavailable. This could be due to network issues, API limits, or server maintenance. Please refresh the page or try again in a few minutes.",
+    urlToImage: "../public/THE-GOURNAL-Logo.svg",
+    url: "#",
+    source: { name: "The Gournal" },
+    publishedAt: new Date().toISOString()
+  },
+  {
+    title: "Stay Connected",
+    description: "We're working to restore normal service as quickly as possible.",
+    content: "The Gournal provides daily news from trusted sources worldwide. We apologize for any inconvenience and appreciate your patience as we work to resolve this issue.",
+    urlToImage: "../public/THE-GOURNAL-Logo.svg",
+    url: "#",
+    source: { name: "The Gournal" },
+    publishedAt: new Date().toISOString()
+  }
+];
 
 // Function to clean HTML and programming code from content
 const cleanHtmlAndCode = (content) => {
@@ -163,45 +192,74 @@ export const categories = [
   "environment",
 ];
 
-// API Services
+// API Services with simple error handling
 export const newsAPI = {
   // Get top headlines with enhanced content
   getTopHeadlines: async (category = "", pageSize = 20, page = 1) => {
+    // Return fallback if no API key
+    if (!API_KEY) {
+      console.warn('No API key available, using fallback data');
+      return {
+        articles: fallbackArticles,
+        totalResults: fallbackArticles.length
+      };
+    }
+
     try {
       await rateLimit(); // Apply rate limiting
 
       // Try multiple approaches to get better content
       let response;
       let articles = [];
+      const safePageSize = Math.min(pageSize, 10);
 
       // Approach 1: Use specific high-quality sources
-      const sources = [
-        "the-verge",
-        "wired",
-        "ars-technica",
-        "engadget",
-        "bbc-news",
-        "reuters",
-        "bloomberg",
-        "business-insider",
-        "cnn",
-        "associated-press",
-      ].join(",");
-
       try {
         console.log("Fetching from premium sources...");
+        const sources = [
+          "bbc-news",
+          "reuters", 
+          "associated-press",
+          "cnn"
+        ].join(",");
+
         response = await apiClient.get("/top-headlines", {
-          params: { sources, pageSize, page },
+          params: { 
+            sources, 
+            pageSize: safePageSize, 
+            page: 1
+          },
         });
         articles = response.data.articles || [];
       } catch (sourceError) {
         console.log("Premium sources failed, trying general headlines...");
+        
+        // Simple error handling for specific status codes
+        if (sourceError.response?.status === 426) {
+          console.error('API quota exceeded');
+          return {
+            articles: fallbackArticles,
+            totalResults: fallbackArticles.length
+          };
+        }
+        
+        if (sourceError.response?.status === 401) {
+          console.error('Invalid API key');
+          return {
+            articles: fallbackArticles,
+            totalResults: fallbackArticles.length
+          };
+        }
 
         // Approach 2: Try general top headlines by category
-        const params = { pageSize, page };
+        const params = { 
+          pageSize: safePageSize, 
+          page: 1,
+          country: "us"
+        };
+        
         if (category && category !== "general") {
           params.category = category;
-          params.country = "us"; // Add country for better results
         }
 
         response = await apiClient.get("/top-headlines", { params });
@@ -217,24 +275,28 @@ export const newsAPI = {
       };
     } catch (error) {
       console.error("Error fetching top headlines:", error);
-      // Return error when no local fallback is available
-      throw new Error(
-        "Unable to fetch articles. Please check your internet connection and try again."
-      );
+      
+      // Always return fallback data instead of throwing error
+      return {
+        articles: fallbackArticles,
+        totalResults: fallbackArticles.length
+      };
     }
   },
 
   // Get articles by category with enhanced content
   getArticlesByCategory: async (category, pageSize = 20, page = 1) => {
     try {
-      // Try to get from API
       const result = await newsAPI.getTopHeadlines(category, pageSize, page);
       return result;
     } catch (error) {
       console.error("Error in getArticlesByCategory:", error);
-      throw new Error(
-        "Unable to fetch articles by category. Please check your internet connection and try again."
-      );
+      
+      // Return fallback instead of throwing error
+      return {
+        articles: fallbackArticles,
+        totalResults: fallbackArticles.length
+      };
     }
   },
 };
