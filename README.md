@@ -4,7 +4,7 @@
 
 ![The Gournal Logo](./public/THE-GOURNAL-Logo.svg)
 
-**The Gournal** is a newspaper-style web application that brings the classic 1980s newspaper reading experience to the digital age. Built as the capstone project for the ALX Frontend Engineering Program, it combines authentic newspaper design with modern web technologies to deliver real-time news from premium sources worldwide.
+**The Gournal** is a newspaper-style web application that brings the classic 1980s newspaper reading experience to the digital age. Built as the capstone project for the ALX Frontend Engineering Program, it combines authentic newspaper design with modern web technologies to deliver real-time news from RSS feeds worldwide.
 
 [![THE GOURNAL](https://img.shields.io/badge/THE-GOURNAL-8B4513?style=for-the-badge)](https://the-gournal.vercel.app/)
 [![ALX](https://img.shields.io/badge/ALX-Program-DC143C?style=for-the-badge)](https://www.alxafrica.com/)
@@ -32,11 +32,13 @@
 - **Dynamic Grid**: Intelligent article positioning across 12-column layout
 - **Image Optimization**: Fixed dimensions with object-fit cover
 
-### 🌐 **Premium News Integration**
+### 🌐 **RSS News Integration**
 
-- **Multiple Sources**: BBC, Reuters, Bloomberg, CNN, The Verge, Wired, and more
-- **Rate Limiting**: Respectful API usage with 1-second delays
-- **Content Enhancement**: Clean, readable text with source attribution
+- **Multiple RSS Sources**: BBC, Reuters, Bloomberg, CNN, The Verge, Wired, and 20+ more
+- **Real-time Updates**: Direct RSS feed parsing for fresh content
+- **No API Limits**: Unlimited access to diverse news sources
+- **CORS Proxy**: Seamless client-side RSS feed processing
+- **Content Enhancement**: Clean, readable text with intelligent image fallbacks
 
 ### ⚡ **Performance & UX**
 
@@ -67,6 +69,11 @@ Experience The Gournal: [**THE GOURNAL**](https://the-gournal.vercel.app/)
 - **Zustand** - Lightweight state management
 - **Custom Hooks** - Optimized React patterns
 
+### **API & Data**
+
+- **Fast XML Parser** - High-performance RSS/XML parsing
+- **RSS Feeds** - Real-time news from 25+ premium sources worldwide
+- **CORS Proxy** - Seamless cross-origin RSS feed access
 
 ### **Development Tools**
 
@@ -80,7 +87,7 @@ Experience The Gournal: [**THE GOURNAL**](https://the-gournal.vercel.app/)
 
 - Node.js
 - npm or yarn
-- News API key from [NewsAPI.org](https://newsapi.org/)
+- RSS feed URLs
 
 ### **Quick Start**
 
@@ -92,15 +99,6 @@ cd the-gournal
 # Install dependencies
 npm install
 
-# Set up environment variables
-cp .env.example .env
-
-# Get your free API key from [NewsAPI.org](https://newsapi.org/register)
-# Add your News API key to .env
-NEWS_API_KEY='your_news_api_key_here'
-
-Note: Remember to keep your API key secure and not expose it in public repositories.
-
 # Start development server
 npm run dev
 
@@ -109,27 +107,27 @@ npm run dev
 
 ## 📁 Project Structure
 
-```
+```text
 The Gournal/
 ├── public/
-│   ├── THE-GOURNAL-Logo.svg    # Logo asset
+│   ├── THE-GOURNAL-Logo.svg    # Logo asset  
 ├── src/
 │   ├── components/
 │   │   ├── Article.jsx         # Multi-layout article component
-│   │   ├── ArticleStyles.jsx   # Styled components for articles
+│   │   ├── ArticleStyles.jsx   # Article styling configurations
 │   │   ├── Header.jsx          # Newspaper header with date
 │   │   ├── Footer.jsx          # Classic footer design
-│   │   └── SearchBar.jsx       # Search input for articles
+│   │   └── SearchBar.jsx       # Real-time article search
 │   ├── context/
-│   │   ├── ApiServices.js      # News API integration
 │   │   └── UserContext.jsx     # Zustand state management
+│   ├── services/
+│   │   └── RSSService.js       # RSS feed parsing & integration
 │   ├── pages/
 │   │   ├── Journal.jsx         # Main newspaper layout
 │   │   └── NotFound.jsx        # 404 page
 │   ├── App.jsx                 # Main app component
 │   ├── main.jsx               # React entry point
 │   └── index.css              # Global styles & responsive design
-├── .env                       # Environment template
 ├── tailwind.config.js         # Tailwind configuration
 ├── vite.config.js             # Vite build configuration
 ├── eslint.config.js           # ESLint configuration
@@ -137,19 +135,35 @@ The Gournal/
 └── package.json               # Dependencies & scripts
 ```
 
-
 ## 🎨 Design Philosophy
 
 **The Gournal** recreates the authoritative feel of traditional print journalism while embracing modern web capabilities. The design draws inspiration from:
 
 - **The New York Times** (1980s layout structure)
 - **The Guardian** (Classic typography)
+- **Traditional Broadsheets** (Multi-column layouts)
 
 ### **Color Palette**
 
 - **Primary Background**: `#E2D4BC` (Warm beige)
 - **Text Color**: `#302B1F` (Dark brown)
 - **Accent**: Grayscale with hover effects
+
+## 📱 Responsive Behavior
+
+### **Desktop Experience**
+
+- Full 12-column newspaper layout
+- Multi-column article text
+- Sidebar spotlight sections
+- Large hero images
+
+### **Mobile Experience**
+
+- Single-column vertical stack
+- Touch-optimized interactions
+- Scaled typography
+- Condensed navigation
 
 ## 🤝 Contributing
 
@@ -168,7 +182,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ### **Special Thanks**
 
 - **[ALX Africa](https://www.alxafrica.com/)** - For the comprehensive frontend engineering program
-- **[News API](https://newsapi.org/)** - For providing reliable news data
+- **RSS Feed Providers** - BBC, Reuters, CNN, Bloomberg, and all news sources
+- **React Community** - For exceptional documentation and support
+- **Tailwind CSS Team** - For the utility-first CSS framework
+- **Fast XML Parser** - For reliable RSS parsing capabilities
 
 ## 👨‍💻 Author
 
