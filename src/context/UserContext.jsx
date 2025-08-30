@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { newsAPI } from '../services/ApiServices';
 
 const useNewsStore = create((set, get) => ({
   articles: [],

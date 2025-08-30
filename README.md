@@ -67,11 +67,6 @@ Experience The Gournal: [**THE GOURNAL**](https://the-gournal.vercel.app/)
 - **Zustand** - Lightweight state management
 - **Custom Hooks** - Optimized React patterns
 
-### **API & Data**
-
-- **Axios** - HTTP client with interceptors
-- **News API** - Real-time news from premium sources
-- **Rate Limiting** - Respectful API usage patterns
 
 ### **Development Tools**
 
