@@ -43,7 +43,7 @@ const Journal = () => {
   return (
     <main>
       <SearchBar />
-      <div className="container p-[64px]">
+      <div className="container">
         {articles.length === 0 ? (
           <div className="text-center p-[64px]">
             <h3 className="text-[32px] font-bold mb-[8px]">
