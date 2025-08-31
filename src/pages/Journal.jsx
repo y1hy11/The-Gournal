@@ -43,9 +43,9 @@ const Journal = () => {
   return (
     <main>
       <SearchBar />
-      <div className="container mx-auto px-4 py-6">
+      <div className="container p-[64px]">
         {articles.length === 0 ? (
-          <div className="text-center py-[64px]">
+          <div className="text-center p-[64px]">
             <h3 className="text-[32px] font-bold mb-[8px]">
               No Articles Available
             </h3>

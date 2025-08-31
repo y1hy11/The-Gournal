@@ -1,4 +1,4 @@
-# 📰 THE GOURNAL
+# THE GOURNAL
 
 ## *Your trusted source for daily news*
 
