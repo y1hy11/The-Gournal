@@ -13,11 +13,13 @@ const Journal = () => {
   if (loading && articles.length === 0) {
     return (
       <main>
-        <div className="container mx-auto px-6 py-8">
-          <div className="text-center py-16">
+        <div className="container p-[64px]">
+          <div className="text-center">
             <div className="animate-pulse">
-              <h3 className="text-2xl font-bold mb-4">Loading News...</h3>
-              <p>Please wait while we fetch the latest articles.</p>
+              <h3 className="text-[32px] font-bold">Loading News...</h3>
+              <p className="text-[17px]">Please wait while we fetch the latest articles.</p>
+              <p className="text-[17px]">It takes time to load articles from various sources.</p>
+              <p className="text-[17px]">Your patience is appreciated!</p>
             </div>
           </div>
         </div>
@@ -28,9 +30,9 @@ const Journal = () => {
   if (error) {
     return (
       <main>
-        <div className="container mx-auto px-6 py-12">
-          <div className="text-center max-w-lg mx-auto border p-8">
-            <h2 className="text-2xl font-bold mb-4">Unable to Load News</h2>
+         <div className="container p-[64px]">
+          <div className="text-center">
+            <h2 className="text-[32px] font-bold">Unable to Load News</h2>
             <p>{error}</p>
           </div>
         </div>
