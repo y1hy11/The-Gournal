@@ -1,10 +1,12 @@
 import { create } from 'zustand';
+import { rssService } from '../services/RSSService';
 
 const useNewsStore = create((set, get) => ({
   articles: [],
   allArticles: [],
   loading: false,
   error: null,
+  currentCategory: 'general',
 
   setArticles: (articles) => {
     set({ 
@@ -14,27 +16,36 @@ const useNewsStore = create((set, get) => ({
     });
   },
   
-  fetchArticles: async (category = 'general', useApi = true) => {
-    set({ loading: true, error: null });
+  fetchArticles: async (category = 'general') => {
+    set({ loading: true, error: null, currentCategory: category });
     
     try {
-      if (useApi) {
-        const data = await newsAPI.getArticlesByCategory(category, 50);
-        const allArticles = data.articles || [];
-        get().setArticles(allArticles);
-      } else {
-        throw new Error('Local data not available. API connection required.');
-      }
+      console.log(`Fetching RSS articles for category: ${category}`);
+      const data = await rssService.getArticlesByCategory(category, 50);
+      const allArticles = data.articles || [];
+      
+      console.log(`Successfully fetched ${allArticles.length} RSS articles`);
+      get().setArticles(allArticles);
+      
     } catch (error) {
-      console.error('Error fetching articles:', error);
+      console.error('Error fetching RSS articles:', error);
       set({ 
-        error: error.message || 'Unable to fetch articles. Please check your internet connection and try again.',
+        error: error.message || 'Unable to fetch articles from RSS feeds. Please check your internet connection and try again.',
         articles: [],
         allArticles: []
       });
     } finally {
       set({ loading: false });
     }
+  },
+
+  refreshArticles: async () => {
+    const { currentCategory } = get();
+    await get().fetchArticles(currentCategory);
+  },
+
+  getAvailableCategories: () => {
+    return rssService.getCategories();
   },
 
 }));

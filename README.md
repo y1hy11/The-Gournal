@@ -186,6 +186,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - **React Community** - For exceptional documentation and support
 - **Tailwind CSS Team** - For the utility-first CSS framework
 - **Fast XML Parser** - For reliable RSS parsing capabilities
+- **[AllOrigins](https://allorigins.win/)** - For providing the essential CORS proxy service that enables seamless RSS feed access
 
 ## 👨‍💻 Author
 

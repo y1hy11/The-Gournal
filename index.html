@@ -1,9 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/THE-GOURNAL-Logo.svg" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' https: data:;
+      connect-src 'self' https://api.allorigins.win https://*.bbci.co.uk https://*.reuters.com https://*.cnn.com https://*.bloomberg.com https://*.npr.org https://*.washingtonpost.com https://*.feedburner.com https://*.wired.com https://*.arstechnica.com https://*.theverge.com https://*.nationalgeographic.com https://*.sciencedaily.com https://*.webmd.com https://*.espn.com https://*.skysports.com https://picsum.photos;
+      font-src 'self';
+      frame-src 'none';
+      object-src 'none';
+    " />
+    <link rel="icon" type="image/svg+xml" href="./public/THE-GOURNAL-Logo.svg" />
     <title>The Gournal</title>
   </head>
   <body>
